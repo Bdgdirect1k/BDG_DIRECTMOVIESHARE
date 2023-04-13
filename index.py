@@ -14,13 +14,13 @@ bot = Bot(TOKEN)
 
 
 def welcome(update, context) -> None:
-    update.message.reply_text(f"Hello {update.message.from_user.first_name}, Welcome to SB Movies.\n"
+    update.message.reply_text(f"Hello {update.message.from_user.first_name}, Welcome to BDG_DIRECTS.\n" 
                               f"🔥 Download Your Favourite Movies For 💯 Free And 🍿 Enjoy it.")
-    update.message.reply_text("👇 Enter Movie Name 👇")
+    update.message.reply_text("👇 Name Likh Chotey 👇")
 
 
 def find_movie(update, context):
-    search_results = update.message.reply_text("Processing...")
+    search_results = update.message.reply_text("🔍 Ruko Jara Sabar Rakho.....")
     query = update.message.text
     movies_list = search_movies(query)
     if movies_list:
@@ -31,7 +31,7 @@ def find_movie(update, context):
         reply_markup = InlineKeyboardMarkup(keyboards)
         search_results.edit_text('Search Results...', reply_markup=reply_markup)
     else:
-        search_results.edit_text('Sorry 🙏, No Result Found!\nCheck If You Have Misspelled The Movie Name.')
+        search_results.edit_text('Babu Pahadi kar le hoti name is incorrect\nOr Mera Pass Yah Movie Nhi Hogi . Sune Chote Jo Movie Na Mile uska Name is Group Me Send Kar da 👇👇👇👇       [@requestgroupbdg]')
 
 
 def movie_result(update, context) -> None:
@@ -44,7 +44,7 @@ def movie_result(update, context) -> None:
     links = s["links"]
     for i in links:
         link += "🎬" + i + "\n" + links[i] + "\n\n"
-    caption = f"⚡ Fast Download Links :-\n\n{link}"
+    caption = f"😘BABU Download From Here👇 :-\n\n{link}"
     if len(caption) > 4095:
         for x in range(0, len(caption), 4095):
             query.message.reply_text(text=caption[x:x+4095])
